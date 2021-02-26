@@ -10,7 +10,7 @@ int test_level[64] {
     0, 0, 0, 0, 0, 0, 0, 0,
     1, 1, 1, 0, 0, 1, 1, 1,
     0, 0, 1, 0, 0, 1, 0, 0,
-    0, 0, 1, 0, 0, 1, 0, 0,
+    0, 0, 1, 1, 0, 1, 0, 0,
     0, 0, 1, 1, 1, 1, 0, 0
 };
 
@@ -27,7 +27,7 @@ void generateTerrain(int* terrain, int size, Flux::ECSCtx* ctx)
             {
                 // Add a 2x2 cube
                 auto ens = cube->addToECS(ctx);
-                Flux::Transform::translate(ens[0], glm::vec3(x * 2, 0, y * 2));
+                Flux::Transform::translate(ens[0], glm::vec3(x * 2 + 1, 0, y * 2 + 1));
             }
         }
     }
