@@ -1,0 +1,21 @@
+{
+    "files": [
+        {
+            "input": "Test.obj",
+            "output": "Test.farc"
+        },
+        {
+            "input": "TestLevel.farc",
+            "output": "TestLevel.farc"
+        },
+        {
+            "input": "Cube.obj",
+            "output": "Cube.farc"
+        },
+        {
+            "input": "Enclosure.obj",
+            "output": "Enclosure.farc"
+        }
+    ],
+    "version": 1
+}

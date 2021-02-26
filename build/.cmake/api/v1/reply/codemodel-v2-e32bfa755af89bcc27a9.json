@@ -1,0 +1,550 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						21
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						6
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "Flux/FluxEngine",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						20,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine/ThirdParty/term-colors",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "Flux/FluxEngine/ThirdParty/term-colors"
+				},
+				{
+					"build" : "Flux/FluxEngine/ThirdParty/glad",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "Flux/FluxEngine/ThirdParty/glad",
+					"targetIndexes" : 
+					[
+						32
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine/ThirdParty/glfw",
+					"childIndexes" : 
+					[
+						5
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 4,
+					"source" : "Flux/FluxEngine/ThirdParty/glfw",
+					"targetIndexes" : 
+					[
+						35
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine/ThirdParty/glfw/src",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 4,
+					"source" : "Flux/FluxEngine/ThirdParty/glfw/src",
+					"targetIndexes" : 
+					[
+						33
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine/FluxTools/FluxArc",
+					"childIndexes" : 
+					[
+						7
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 5,
+					"source" : "Flux/FluxEngine/FluxTools/FluxArc",
+					"targetIndexes" : 
+					[
+						19,
+						34
+					]
+				},
+				{
+					"build" : "Flux/FluxEngine/FluxTools/FluxArc/AsyncFiles",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 5,
+					"source" : "Flux/FluxEngine/FluxTools/FluxArc/AsyncFiles",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MazeGame",
+					"targetIndexes" : 
+					[
+						21
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "FluxEngine",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						20,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "termcolors",
+					"parentIndex" : 1
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "glad",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						32
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5
+					],
+					"name" : "GLFW",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						33,
+						35
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6,
+						7
+					],
+					"name" : "FluxArc",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0,
+						19,
+						34
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 7,
+					"id" : "AsyncFiles::@8e3af4fee3fef266c72d",
+					"jsonFile" : "target-AsyncFiles-Debug-623dd90298411ae8d3a8.json",
+					"name" : "AsyncFiles",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Continuous::@6092ddde4de69b236a37",
+					"jsonFile" : "target-Continuous-Debug-039a9a46d36247da8589.json",
+					"name" : "Continuous",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousBuild::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousBuild-Debug-49b896aa2a119a6356f4.json",
+					"name" : "ContinuousBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousConfigure::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousConfigure-Debug-207546d3188e799fe3d5.json",
+					"name" : "ContinuousConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousCoverage::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousCoverage-Debug-cc6cf6055c907e626be6.json",
+					"name" : "ContinuousCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousMemCheck::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousMemCheck-Debug-2485b3097c0e8f0062b2.json",
+					"name" : "ContinuousMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousStart::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousStart-Debug-decdee479c04365f7c30.json",
+					"name" : "ContinuousStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousSubmit::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousSubmit-Debug-1da44d93eadcfe874a2a.json",
+					"name" : "ContinuousSubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousTest::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousTest-Debug-0ac850b06879a80a73e1.json",
+					"name" : "ContinuousTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousUpdate::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ContinuousUpdate-Debug-bcfe717df8b2762068b2.json",
+					"name" : "ContinuousUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Experimental::@6092ddde4de69b236a37",
+					"jsonFile" : "target-Experimental-Debug-937ce728f261c1a9bedb.json",
+					"name" : "Experimental",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalBuild::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalBuild-Debug-a0e98d43920375adadf0.json",
+					"name" : "ExperimentalBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalConfigure::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalConfigure-Debug-ca7b231bc6d4d3b3887f.json",
+					"name" : "ExperimentalConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalCoverage::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalCoverage-Debug-39108c60edf10a46f721.json",
+					"name" : "ExperimentalCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalMemCheck::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalMemCheck-Debug-473f6eae1b5f9e1980f2.json",
+					"name" : "ExperimentalMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalStart::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalStart-Debug-263436c5930ffbdb2b1a.json",
+					"name" : "ExperimentalStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalSubmit::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalSubmit-Debug-bc904981ec3aaaf98bc2.json",
+					"name" : "ExperimentalSubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalTest::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalTest-Debug-7cfc2ce39d903cb39eed.json",
+					"name" : "ExperimentalTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalUpdate::@6092ddde4de69b236a37",
+					"jsonFile" : "target-ExperimentalUpdate-Debug-a0f1e580e79fae5efd76.json",
+					"name" : "ExperimentalUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "FluxArc::@b696c302a720d98417a2",
+					"jsonFile" : "target-FluxArc-Debug-d0f046848df7c9a625ae.json",
+					"name" : "FluxArc",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "FluxEngine::@6092ddde4de69b236a37",
+					"jsonFile" : "target-FluxEngine-Debug-b698705d8e570cff6ca2.json",
+					"name" : "FluxEngine",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MazeGame::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MazeGame-Debug-ad5f8cf07b3f6da2a55d.json",
+					"name" : "MazeGame",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Nightly::@6092ddde4de69b236a37",
+					"jsonFile" : "target-Nightly-Debug-cebb84d79c9e7a3437ae.json",
+					"name" : "Nightly",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyBuild::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyBuild-Debug-cc945c2370bc4a8a9d72.json",
+					"name" : "NightlyBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyConfigure::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyConfigure-Debug-3183472fffaf17e62984.json",
+					"name" : "NightlyConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyCoverage::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyCoverage-Debug-18913ed6d80e5988ea8b.json",
+					"name" : "NightlyCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyMemCheck::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyMemCheck-Debug-bab75261c27de9bc0a3f.json",
+					"name" : "NightlyMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyMemoryCheck::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyMemoryCheck-Debug-e06a6208be0cf18acbc0.json",
+					"name" : "NightlyMemoryCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyStart::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyStart-Debug-564ca958e383dc02de5f.json",
+					"name" : "NightlyStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlySubmit::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlySubmit-Debug-38915f8ad9127bbb6872.json",
+					"name" : "NightlySubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyTest::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyTest-Debug-b2902837379db414613c.json",
+					"name" : "NightlyTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyUpdate::@6092ddde4de69b236a37",
+					"jsonFile" : "target-NightlyUpdate-Debug-405f1c67f70c0226d037.json",
+					"name" : "NightlyUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glad::@cde3500ac42badd5fb34",
+					"jsonFile" : "target-glad-Debug-04bb31dcdbc7c5ef7659.json",
+					"name" : "glad",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "glfw::@85c2dccb907b9e2aa498",
+					"jsonFile" : "target-glfw-Debug-f6a6aa2496fe933a0af0.json",
+					"name" : "glfw",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "lz4::@b696c302a720d98417a2",
+					"jsonFile" : "target-lz4-Debug-e43ddd16ce9c1576574b.json",
+					"name" : "lz4",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "uninstall::@eab4884fc31f41cb6d66",
+					"jsonFile" : "target-uninstall-Debug-2aa3d455586d3c7fa597.json",
+					"name" : "uninstall",
+					"projectIndex" : 4
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/finn/cpp/flux/MaxeGame/build",
+		"source" : "/home/finn/cpp/flux/MaxeGame"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

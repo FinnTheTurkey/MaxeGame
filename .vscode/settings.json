@@ -1,0 +1,15 @@
+{
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.formatting": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "cmake.statusbar.advanced": {
+    "launch": {"visibility": "hidden"},
+    "debug": {"visibility": "hidden"}
+    },
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}"
+    },
+    "cmake.generator": "Ninja",
+    "cmake.buildTask": true,
+}
