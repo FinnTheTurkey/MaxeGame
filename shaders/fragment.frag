@@ -26,7 +26,6 @@ layout (std140) uniform Lights
     vec3 light_directions[128];
     vec3 light_colors[128];
     vec3 light_infos[128];
-
 };
 
 // TODO: Put as uniforms in Material
@@ -149,8 +148,8 @@ vec3 reflectanceEquation(vec3 N, vec3 V, vec3 F0, vec3 diffuse, vec3 light_pos,
     kD *= 1.0 - metal_p;
 
     vec3 numerator = NDF * G * F;
-    float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0);
-    vec3 specular = numerator / max(denominator, 0.001);
+    float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.001;
+    vec3 specular = numerator / denominator;
 
     // Add to outgoing radience Lo
     float NdotL = max(dot(N, L), 0.0);
@@ -175,10 +174,9 @@ void main()
         N = texture(normal_map, tex_coord).xyz;
 
         // Make the normal map work properly
-        N = normalize(N * 2.0 - 1.0);
+        N = N * 2.0 - 1.0;
         N = normalize(tbn * N);
 
-        // TODO: Do stuff in vertex shader or something. See https://learnopengl.com/Advanced-Lighting/Normal-Mapping
     }
     else
     {
@@ -220,11 +218,15 @@ void main()
                     light_directions[light_indexes[i]],
                     // 0.5, 0.2);
                     roughness_p, metal_p);
-            // Lo += vec3(0.5, 0, 0);
+            // if (isnan(Lo).x && isnan(Lo).y && isnan(Lo).z)
+            // {
+            //     Lo += vec3(0.5, 0, 0);
+            // }
         }
     }
 
     vec3 color = pow(Lo/(Lo + 1.0), vec3(1.0/2.2));
+    // vec3 color = Lo;
 
     FragColor = vec4(color, 1);
     // FragColor = diffuse;
