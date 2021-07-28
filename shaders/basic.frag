@@ -1,10 +1,10 @@
 #version 300 es
-precision mediump float;
+precision highp float;
 out vec4 FragColor;
 
 in vec2 tex_coord;
 
-layout (shared) uniform Material 
+layout (std140) uniform Material 
 {
     vec3 color;
 };

@@ -50,8 +50,9 @@ Level level1 {
     new int[16 * 16] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
+
 int current_level_id = 0;
-const int total_levels = 3;
+const int total_levels = 4;
 
 Level& current_level = level1;
 
@@ -82,22 +83,11 @@ States state = Playing;
 
 double timer;
 
-void startLevel(int id)
+void initialStart()
 {
-    current_level = levels[id];
-    position = current_level.starting_pos;
-
+    // Create monster
     monsters = std::vector<Monster*>();
     monster_entities = std::vector<Flux::EntityRef>();
-    terrain = generateTerrain(&ctx, current_level);
-
-    // Add exit
-    auto eloader = Flux::Resources::deserialize("Assets/Exit.farc");
-    auto eens = eloader->addToECS(&ctx);
-    Flux::Transform::translate(eens[0], glm::vec3(current_level.exit_position.x * 2 + 1, 0, current_level.exit_position.y * 2 + 1));
-    monster_entities.insert(monster_entities.end(), eens.begin(), eens.end());
-
-    // Create monster
     auto monloader = Flux::Resources::deserialize("Assets/Oozey/OozeyScaled.farc");
 
     for (int y = 0; y < current_level.size; y++)
@@ -116,6 +106,23 @@ void startLevel(int id)
             }
         }
     }
+}
+
+std::vector<Flux::EntityRef> eens;
+
+void startLevel(int id)
+{
+    current_level = levels[id];
+    position = current_level.starting_pos;
+
+    terrain = generateTerrain(&ctx, current_level);
+
+    // Add exit
+    auto eloader = Flux::Resources::deserialize("Assets/Exit.farc");
+    eens = eloader->addToECS(&ctx);
+    Flux::Transform::translate(eens[0], glm::vec3(current_level.exit_position.x * 2 + 1, 0, current_level.exit_position.y * 2 + 1));
+    // monster_entities.insert(monster_entities.end(), eens.begin(), eens.end());
+
     rotate_left = 0;
     direction = North;
     camera.removeComponent<Flux::Transform::TransformCom>();
@@ -157,13 +164,7 @@ void startLevel(int id)
 
 void destroyLevel()
 {
-    for (auto i : monsters)
-    {
-        // ctx.destroyEntity(i->entity);
-        delete i;
-    }
-
-    for (auto i : monster_entities)
+    for (auto i : eens)
     {
         ctx.destroyEntity(i);
     }
@@ -175,6 +176,17 @@ void destroyLevel()
 void destroyCorpses()
 {
     for (auto i : corpse_entities)
+    {
+        ctx.destroyEntity(i);
+    }
+
+    for (auto i : monsters)
+    {
+        // ctx.destroyEntity(i->entity);
+        delete i;
+    }
+
+    for (auto i : monster_entities)
     {
         ctx.destroyEntity(i);
     }
@@ -369,7 +381,7 @@ void smoothMove(float delta)
                 if (rotate_left < 0)
                 {
                     Flux::Transform::rotate(camera, glm::vec3(0, 1, 0), rotate_left + 6.265732 * delta);
-                    Flux::Transform::rotate(compass, glm::vec3(0, 1, 0), rotate_left + 6.265732 * delta * -1);
+                    Flux::Transform::rotate(compass, glm::vec3(0, 1, 0), (rotate_left + 6.265732 * delta) * -1);
                 }
                 else
                 {
@@ -383,7 +395,7 @@ void smoothMove(float delta)
                 if (rotate_left < 0)
                 {
                     Flux::Transform::rotate(camera, glm::vec3(0, -1, 0), rotate_left + 6.265732 * delta);
-                    Flux::Transform::rotate(compass, glm::vec3(0, -1, 0), rotate_left + 6.265732 * delta * -1);
+                    Flux::Transform::rotate(compass, glm::vec3(0, -1, 0), (rotate_left + 6.265732 * delta) * -1);
                 }
                 else
                 {
@@ -392,6 +404,7 @@ void smoothMove(float delta)
                 }
                 
                 break;
+                
 
             case Forwards:
                 rotate_left -= speed * delta;
@@ -563,6 +576,7 @@ void loop(float delta)
         if (player_moved && safe_moves < 1)
         {
             // Now the Monsters also get to move!
+            int c = 0;
             for (auto mon : monsters)
             {
                 auto route = findPath(current_level, mon->direction, mon->position, position);
@@ -577,6 +591,16 @@ void loop(float delta)
                         state = Dying;
                         // timer = Flux::Renderer::getTime() + 1;
                         timer = 0;
+
+                        // Remove that monster
+                        monsters.erase(monsters.begin() + c);
+
+                        // Get it tf out of here
+                        Flux::Transform::translate(mon->entity, glm::vec3(9999, 9999, 9999));
+
+                        // Free it
+                        delete mon;
+                        break;
                     }
                 }
 
@@ -666,6 +690,8 @@ void loop(float delta)
                     state = Dying;
                     timer = Flux::Renderer::getTime() + 1;
                 }
+
+                c++;
             }
 
             if (position == current_level.exit_position)
@@ -825,6 +851,7 @@ void loop(float delta)
                 safe_moves = 0;
                 deaths = 0;
                 startLevel(current_level_id + 1);
+                initialStart();
                 current_level_id ++;
             }
         }
@@ -838,12 +865,13 @@ void loop(float delta)
             ctx.getNamedEntity("SplashScreenLight").getComponent<Flux::Renderer::LightCom>()->color = glm::vec3(0, 0, 0);
             Flux::Transform::setVisible(splash_screen, false);
             Flux::Transform::setVisible(compass, true);
+            initialStart();
             state = Playing;
         }
     }
 
     ctx.runSystems(delta);
-    hud_ctx.runSystems(delta);
+    // hud_ctx.runSystems(delta);
 }
 
 void end()

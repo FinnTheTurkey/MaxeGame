@@ -13,7 +13,7 @@ if (EMSCRIPTEN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --preload-file ../Assets --preload-file ../shaders")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_WEBGL2=1 -s USE_GLFW=3 -s ALLOW_MEMORY_GROWTH=1 -s LLD_REPORT_UNDEFINED")
     # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s ASSERTIONS=2 -s DEMANGLE_SUPPORT=1 -s STACK_OVERFLOW_CHECK=2 -s SAFE_HEAP=1 -g4 --source-map-base \"http://0.0.0.0:8000/\" -s DISABLE_EXCEPTION_CATCHING=2") # Debug 
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ffast-math") # Release
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ffast-math --shell-file shell.html") # Release
 
-    set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=undefined -lglfw -s ASSERTIONS=2 -s DEMANGLE_SUPPORT=1 -s STACK_OVERFLOW_CHECK=2 -s SAFE_HEAP=1 -g4")
+    set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS}  -lglfw --shell-file ../shell.html")
 endif()
